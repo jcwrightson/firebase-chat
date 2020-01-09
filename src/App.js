@@ -17,18 +17,18 @@ const uuidv4 = () => {
 }
 
 const names = [
-"L. Hamilton",
-"C. Leclerc",
-"S. Perez",
-"M. Verstappen",
-"V. Bottas",
-"S. Vettel",
-"A. Albon",
-"L. Norris",
-"K. Magnussen",
-"G. Russell",
-"L. Stroll",
-"K. Raikkonen"
+  'L. Hamilton',
+  'C. Leclerc',
+  'S. Perez',
+  'M. Verstappen',
+  'V. Bottas',
+  'S. Vettel',
+  'A. Albon',
+  'L. Norris',
+  'K. Magnussen',
+  'G. Russell',
+  'L. Stroll',
+  'K. Raikkonen'
 ]
 
 let myId
@@ -77,13 +77,15 @@ const App = () => {
   }
 
   const handleSend = () => {
-    db.collection('feed').add({
-      body: msg,
-      uuid: myId,
-      name: myName,
-      created: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    setMsg('')
+    if (msg) {
+      db.collection('feed').add({
+        body: msg,
+        uuid: myId,
+        name: myName,
+        created: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      setMsg('')
+    }
   }
 
   const handleSave = e => {
