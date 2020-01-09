@@ -108,7 +108,7 @@ const App = () => {
               {item.body}
               {item.created && (
                 <label className='timestamp'>
-                  {moment(item.created.toDate()).format('hh:mm')}
+                  {moment(item.created.toDate()).format('H:mm')}
                 </label>
               )}
             </div>
